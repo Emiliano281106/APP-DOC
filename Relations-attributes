@@ -57,6 +57,16 @@ class Child {
     Parent parent;
 }
 ```
+## 🔹 When to Use `mappedBy`?  
+Use **`mappedBy`** on the side that **DOES NOT** own the relationship (usually the `@OneToMany` side).  
+The **foreign key** is stored in the **Many-To-One (`@ManyToOne`)** side.
+
+| **Annotation**                     | **Who Owns the Relationship?** |
+|------------------------------------|--------------------------------|
+| `@OneToMany` **without** `mappedBy` | **Both sides track the relationship (redundant)** |
+| `@OneToMany(mappedBy = "fieldName")` | **Only the `@ManyToOne` side tracks it (correct way)** |
+
+
 ## 5️⃣ `optional` (Do You Always Need a Toy Box?)  
 Imagine you want to **play with toys**.
 
